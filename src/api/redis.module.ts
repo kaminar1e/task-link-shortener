@@ -3,7 +3,7 @@ import Redis from 'ioredis';
 console.log(process.env.REDIS_URL);
 @Global()
 @Module({
-  
+
   providers: [
     {
       provide: 'REDIS_CLIENT',
@@ -13,7 +13,10 @@ console.log(process.env.REDIS_URL);
           port: Number(process.env.REDIS_PORT),
           password: process.env.REDIS_PASSWORD || 'NO REDIS PASSWORD',
           username: process.env.REDIS_USER || 'NO REDIS USERNAME',
-          tls:{}
+          tls: {
+            minVersion: 'TLSv1.2',
+            rejectUnauthorized: true
+          }
         });
       },
     },
