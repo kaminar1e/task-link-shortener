@@ -12,7 +12,8 @@ console.log(process.env.REDIS_URL);
           host: process.env.REDIS_URL || 'NO REDIS URL',
           port: Number(process.env.REDIS_PORT),
           password: process.env.REDIS_PASSWORD || 'NO REDIS PASSWORD',
-          username: process.env.REDIS_USER || 'NO REDIS USERNAME'
+          username: process.env.REDIS_USER || 'NO REDIS USERNAME',
+          tls:{}
         });
       },
     },
