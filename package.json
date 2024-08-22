@@ -1,9 +1,10 @@
 {
-  "engines": {
-    "node": ">=22.6.0"
-  },
+  
   "name": "shortener",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=22.6"
+  },
   "description": "",
   "author": "",
   "private": true,
