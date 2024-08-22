@@ -1,6 +1,5 @@
 build:
   config:
     NODE_ENV: production
-
-run:
-  web: npm run start
+  run:
+    web: npm run start
