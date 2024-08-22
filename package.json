@@ -22,19 +22,19 @@
   "scripts": {
   
     
-  "build": "node_modules/.bin/nest build",
+  "build": "nest build",
   
     
   "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
   
     
-  "start": "node_modules/.bin/nest start",
+  "start": "nest start",
   
     
-  "start:dev": "node_modules/.bin/nest start --watch",
+  "start:dev": "nest start --watch",
   
     
-  "start:debug": "node_modules/.bin/nest start --debug --watch",
+  "start:debug": "nest start --debug --watch",
   
     
   "start:prod": "node dist/main",
