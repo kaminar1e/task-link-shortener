@@ -8,15 +8,18 @@ console.log(process.env.REDIS_URL);
     {
       provide: 'REDIS_CLIENT',
       useFactory: () => {
-        return new Redis({
-          host: process.env.REDIS_URL || 'NO REDIS URL',
-          port: Number(process.env.REDIS_PORT),
-          password: process.env.REDIS_PASSWORD || 'NO REDIS PASSWORD',
-          username: process.env.REDIS_USER || 'NO REDIS USERNAME',
-          tls: {
-            rejectUnauthorized: false,
-          }
-        });
+        // return new Redis({
+        //   host: process.env.REDIS_URL || 'NO REDIS URL',
+        //   port: Number(process.env.REDIS_PORT),
+        //   password: process.env.REDIS_PASSWORD || 'NO REDIS PASSWORD',
+        //   username: process.env.REDIS_USER || 'NO REDIS USERNAME',
+          
+        //   tls: {
+        //     minVersion: 'TLSv1.3',
+        //     rejectUnauthorized: false,
+        //   }
+        // });
+        return new Redis(process.env.REDISCLOUD_URL);
       },
     },
   ],
