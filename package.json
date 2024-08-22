@@ -1,6 +1,6 @@
 {
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=22.6.0"
   },
   "name": "shortener",
   "version": "0.0.1",
