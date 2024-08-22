@@ -22,13 +22,13 @@
   "scripts": {
   
     
-  "build": "nest build",
+  "build": "node ./node_modules/@nestjs/cli/bin/nest.js build",
   
     
   "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
   
     
-  "start": "nest start",
+  "start": "node ./node_modules/@nestjs/cli/bin/nest.js start",
   
     
   "start:dev": "nest start --watch",
