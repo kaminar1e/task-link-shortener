@@ -14,8 +14,7 @@ console.log(process.env.REDIS_URL);
           password: process.env.REDIS_PASSWORD || 'NO REDIS PASSWORD',
           username: process.env.REDIS_USER || 'NO REDIS USERNAME',
           tls: {
-            minVersion: 'TLSv1.2',
-            rejectUnauthorized: true
+            rejectUnauthorized: false,
           }
         });
       },
