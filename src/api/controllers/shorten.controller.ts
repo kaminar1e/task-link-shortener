@@ -16,6 +16,12 @@ export class ShortenController {
         private readonly shortcode: ShortcodeService,
 
     ) { };
+    @Get('')
+    @ApiOperation({summary:'Trying to GET without route specification redirects to this Swagger docs page'})
+    @ApiResponse({ description: 'Redirect to docs' })
+    async default(@Res() res: Response) {
+        res.redirect('/docs');
+    }
 
     @Post('/shorten')
     @UseGuards(LimiterGuard)
