@@ -7,9 +7,6 @@ export class LimitingService implements OnModuleInit, OnModuleDestroy {
     redis: Redis
     async onModuleInit() {
         const client = await new Redis(process.env.REDISCLOUD_URL);
-        client.on('connect', () => {
-            console.log('CONNECTED FROM LIMITING SERVICE');
-        });
         this.redis = client;
     }
 
