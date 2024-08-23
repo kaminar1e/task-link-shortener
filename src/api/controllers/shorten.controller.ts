@@ -22,6 +22,7 @@ export class ShortenController {
     @ApiOperation({ summary: 'Generate short link' })
     @ApiBody({ type: Shorten })
     @ApiResponse({ status: 201, description: 'Shorten link generated', type: shortenResponse })
+    @ApiResponse({ status: 403, description: 'Rate limit exceeded', })
     @ApiResponse({ status: 409, description: 'This shortcode already exists', type: errorResponse })
     @ApiResponse({ status: 500, description: 'Internal server error', type: errorResponse })
 
@@ -47,6 +48,7 @@ export class ShortenController {
     @ApiOperation({ summary: 'Redirect to original URL' })
     @ApiParam({ name: 'code', description: 'Link short code', example: 'abc123' })
     @ApiResponse({ description: 'Redirects to original URL' })
+    @ApiResponse({ status: 403, description: 'Rate limit exceeded', })
     @ApiResponse({ status: 404, description: 'Short link not found', type: errorResponse })
     @ApiResponse({ status: 500, description: 'Internal server error', type: errorResponse })
 
@@ -71,6 +73,7 @@ export class ShortenController {
     @ApiOperation({ summary: 'Get click count of short link' })
     @ApiParam({ name: 'shortcode', description: 'Link short code', example: 'abc123' })
     @ApiResponse({ status: 200, description: 'Click counts of short link', type: getStatsResponse })
+    @ApiResponse({ status: 403, description: 'Rate limit exceeded', })
     @ApiResponse({ status: 404, description: 'Short link not found', type: errorResponse })
     @ApiResponse({ status: 500, description: 'Internal server error', type: errorResponse })
     async getLinkStats(@Param('code') code: string, @Res() res: Response): Promise<Response> {
