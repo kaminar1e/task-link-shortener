@@ -1,49 +1,28 @@
-## Description
+## What is this
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Simple link shortener api that uses Redis Cloud and MongoDB Atlas to persist data
 
 ## Installation
 
-```bash
-$ npm install
-```
+To run project locally you need:
 
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
+1. Git clone this repository OR download zip and unpack it
+2. Add .env file to project directory or include if you have existing one:
 
 ```bash
-# unit tests
-$ npm run test
+   # MongoDB Atlas connection URL
+   MONGODB_URL = ""
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+   # Redis Cloud connection URL
+   REDISCLOUD_URL = "" 
 ```
 
-## Support
+3. Open it in terminal (cmd/PowerShell/VScode terminal/other)
+4. Run command:
+```bash
+  npm run start
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## Documentation
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+To see all endpoints in Swagger, go to http://your-ip-addr:your-port/docs
