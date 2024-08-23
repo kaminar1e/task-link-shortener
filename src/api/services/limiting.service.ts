@@ -1,10 +1,19 @@
-import { Injectable } from '@nestjs/common';
-import { Redis } from 'ioredis';
+import { Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
+import Redis from 'ioredis';
 
 
 @Injectable()
-export class LimitingService {
-    constructor(private readonly redis: Redis) {}
+export class LimitingService implements OnModuleInit, OnModuleDestroy {
+    redis: Redis
+    async onModuleInit() {
+        const client = await new Redis(process.env.REDISCLOUD_URL);
+        this.redis = client;
+    }
+
+    async onModuleDestroy() {
+        await this.redis.quit();
+    }
+    constructor() { }
     limit = 10;
     ttl = 60;
     async checkLimit(ip: string): Promise<boolean> {

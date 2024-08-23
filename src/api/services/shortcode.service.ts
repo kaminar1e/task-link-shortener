@@ -1,14 +1,27 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 
-import { Redis } from 'ioredis';
+import Redis from 'ioredis';
 import * as crypto from 'crypto';
 import { MongodbService } from './mongodb.service';
+// import { RedisCacheModule } from '../redis.module';
 
 @Injectable()
-export class ShortcodeService {
+export class ShortcodeService implements OnModuleInit, OnModuleDestroy {
 
-    constructor(private readonly redis: Redis,
-        private readonly mongoDB: MongodbService) { }
+    redis: Redis
+
+    constructor(private readonly mongoDB: MongodbService) { }
+
+
+    async onModuleInit() {
+        const client = await new Redis(process.env.REDISCLOUD_URL);
+        this.redis = client;
+    }
+
+    async onModuleDestroy() {
+        await this.redis.quit();
+    }
+
 
     symbols = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -31,6 +44,7 @@ export class ShortcodeService {
         try {
             let code = await this.generateShortCode(6);
             while (await this.redis.get(code)) {
+
                 code = await this.generateShortCode(6);
             }
             return code;
