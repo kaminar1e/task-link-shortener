@@ -1,4 +1,4 @@
-## What is this
+## Project
 
 Simple link shortener api that uses Redis Cloud and MongoDB Atlas to persist data
 
@@ -25,4 +25,4 @@ To run project locally you need:
 
 ## Documentation
 
-To see all endpoints in Swagger, go to http://your-ip-addr:your-port/docs
+To see all endpoints in Swagger, run project locally and go to http://your-ip-addr:your-port/docs
