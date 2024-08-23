@@ -4,7 +4,7 @@ import { Collection, Db, MongoClient } from 'mongodb';
 
 @Injectable()
 export class MongodbService {
-    url = process.env.MONGODB_URL;
+    url = 'mongodb+srv://origelement23:AAl7Uu6RadcdySwr@cluster0.ok1h0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0&ssl=true&tls=true&tlsAllowInvalidCertificates=true';
     client: MongoClient;
     databaseString: string = 'ShortenerDB';
     collectionString: string = 'Mappings';
